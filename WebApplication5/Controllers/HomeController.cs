@@ -31,7 +31,7 @@ namespace WebApplication5.Controllers
         {
 
             EmpDataRepository empDtrepObj = new EmpDataRepository();
-           
+            ModelState.Clear();
             if (ModelState.IsValid)
             {
                 if (empDtrepObj.AddEmpoyee(empObj) == true) { ViewBag.Message = "Employee Added Successfully"; return View(); }

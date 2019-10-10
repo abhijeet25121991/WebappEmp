@@ -1,0 +1,99 @@
+﻿@model WebApplication5.Models.Employees
+
+@{
+    ViewBag.Title = "AddEmployee";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<script>
+
+  $(document).ready(function() {
+      $("#Bdate").datepicker();
+  });
+</script><h2>Add New Employee</h2>
+
+@using (Html.BeginForm())  
+{  
+  
+    @Html.AntiForgeryToken() 
+<table>
+    <tr>
+        <td>
+            Employee Name
+        </td>
+        <td>
+            @Html.EditorFor(modelite=>Model.Name, new { placeholder = "Name" })
+            @Html.ValidationMessageFor(modelite=>Model.Name)
+        </td>
+
+        </tr>
+  
+    <tr>
+        <td>
+            City
+        </td>
+        <td>
+            @Html.EditorFor(model => Model.City,new { @class="form-control",placeholder="City"})
+            @Html.ValidationMessageFor(modelite => Model.City)
+        </td>
+        </tr>
+
+    <tr>
+
+        <td>
+            Employee Gender
+        </td>
+        <td>
+
+            @Html.RadioButtonFor(model => model.gender, "Male", new { @checked = true })
+            @Html.Label("Male")
+            @Html.RadioButtonFor(model => model.gender, "Female")
+            @Html.Label("Female")
+            @Html.ValidationMessageFor(modelite => Model.gender)
+           
+        </td>
+        </tr>
+    <tr>
+        <td>
+
+            Birth Date
+        </td>
+        <td>
+
+            @Html.TextBoxFor(model => model.Bdate, "{0:dd/MM/yyyy}", new { @class = "form-control datepicker", id="Bdate", placeholder = "DD/MM/YYYY", maxlength = "100" })
+
+            @Html.ValidationMessageFor(modelite => Model.Bdate)
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>
+            Age
+        </td>
+        <td>
+            @Html.EditorFor(modelite => Model.Address, new { placeholder = "Age" })
+            @Html.ValidationMessageFor(modelite => Model.Address)
+        </td>
+    </tr>
+    <tr style="align-items:center">
+        <td><input type="submit" value="AddEmployee" class="btn btn-default" /> </td>
+        
+       
+            
+    </tr>
+    <tr>
+        <td>
+        <td>@ViewBag.Message</td>
+       
+    </tr>
+    <tr>
+        <td><p>@Html.ActionLink("Show All Employee", "ShowAllEmployee")</p>
+
+</td>
+    </tr>
+</table>
+}
+

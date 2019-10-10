@@ -1,0 +1,90 @@
+﻿@model WebApplication5.Models.Employees
+
+@{
+    ViewBag.Title = "Update Employee";
+}
+
+<h2>Add New Employee</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+    <table>
+        <tr>
+            <td>
+                Employee Name
+            </td>
+            <td>
+                @Html.EditorFor(modelite => Model.Name, new { placeholder = "Name" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                Address
+            </td>
+            <td>
+                @Html.EditorFor(modelite => Model.Address, new { placeholder = "Address" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City
+            </td>
+            <td>
+                @Html.EditorFor(model => Model.City, new { @class = "form-control", placeholder = "City" })
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                Employee Gender
+            </td>
+            <td>
+                
+                @if (Model.gender==0){
+                @Html.RadioButtonFor(model => model.gender, "Male", new { @checked = true })
+                @Html.Label("Male")
+                @Html.RadioButtonFor(model => model.gender, "Female")
+                @Html.Label("Female")
+
+
+                }
+                else{
+                
+                @Html.RadioButtonFor(model => model.gender, "Male")
+                @Html.Label("Male")
+                @Html.RadioButtonFor(model => model.gender, "Female", new { @checked = true })
+                @Html.Label("Female")
+
+
+                }
+               
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                Birth Date
+            </td>
+            <td>
+
+                @Html.TextBoxFor(model => model.Bdate, "{0:dd/MM/yyyy}", new { @class = "form-control datepicker", placeholder = "DD/MM/YYYY", maxlength = "100" })
+
+
+            </td>
+
+        </tr>
+        <tr>
+            <td><input type="submit" value="Update" class="btn btn-default" /> </td>
+
+
+            @ViewBag.Message
+
+
+        </tr>
+    </table>
+}
+

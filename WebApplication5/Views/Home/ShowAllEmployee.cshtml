@@ -1,0 +1,119 @@
+﻿@model IEnumerable<WebApplication5.Models.Employees>
+@{
+    ViewBag.Title = "FetchEmployee";
+}
+<style>
+    .table th,td
+
+    {
+        width:100px;
+    }
+</style>
+<h2>All Employee List</h2>
+<br />
+<input type="text" id="txtSearch" value="" placeholder="Search Employee"/>
+<hr />
+<table id="tblEmployee">
+    <tr>
+        <th>
+             ID
+        </th>
+        <th>
+             Name
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Birth Date
+        </th>
+        <th>
+             City
+        </th>
+        <th>
+             Age
+        </th>
+
+
+    </tr>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.ID)
+
+
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+
+                    <td>
+                        @if (item.gender == 0)
+                        {
+                            <label>Male</label>
+                        }
+                        else
+                        {<label>FeMale</label>
+                        }
+
+                    </td>
+
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Bdate)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Update", "updateEmployee", new { empid = item.ID })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "deleteEmployee", new { empId = item.ID })
+                       
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                    <td>@ViewBag.Message</td>
+
+                </tr>
+                
+            }
+        }
+    </table>
+<label id="lblMsg"></label>
+<br />
+<hr />
+<p>@Html.ActionLink("Add New Employee", "AddEmployee")</p>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>  
+<script>
+
+    $(document).ready(function () {
+        $("#txtSearch").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#tblEmployee tbody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+
+
+</script>

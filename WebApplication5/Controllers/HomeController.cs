@@ -37,7 +37,7 @@ namespace WebApplication5.Controllers
                 if (empDtrepObj.AddEmpoyee(empObj) == true) { ViewBag.Message = "Employee Added Successfully"; return View(); }
                 else
                 {
-                    ViewBag.Message = "Something went wrong";
+                    ViewBag.Message = "Please fill valid data";
                     return View();
                 }
             }
@@ -73,7 +73,7 @@ namespace WebApplication5.Controllers
             }
             else
             {
-                ViewBag.Message = "Something went wrong";
+                ViewBag.Message = "Please fill valid data";
                 return View();
             }
         }

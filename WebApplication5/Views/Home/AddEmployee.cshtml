@@ -13,7 +13,7 @@
       $("#Bdate").datepicker();
   });
 </script><h2>Add New Employee</h2>
-
+<hr />
 @using (Html.BeginForm())  
 {  
   
@@ -21,7 +21,7 @@
 <table>
     <tr>
         <td>
-            Employee Name
+             Name
         </td>
         <td>
             @Html.EditorFor(modelite=>Model.Name, new { placeholder = "Name" })
@@ -43,7 +43,7 @@
     <tr>
 
         <td>
-            Employee Gender
+             Gender
         </td>
         <td>
 
@@ -79,7 +79,7 @@
         </td>
     </tr>
     <tr style="align-items:center">
-        <td><input type="submit" value="AddEmployee" class="btn btn-default" /> </td>
+        <td><input type="submit" value="Add Employee" class="btn btn-default" /> </td>
         
        
             

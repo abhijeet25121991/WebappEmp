@@ -175,6 +175,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -241,6 +242,7 @@
     <Content Include="Views\Home\FetchEmployee.cshtml" />
     <Content Include="Views\Home\ShowAllEmployee.cshtml" />
     <Content Include="Views\Home\updateEmployee.cshtml" />
+    <Content Include="Views\Home\Department.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

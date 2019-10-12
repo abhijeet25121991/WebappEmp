@@ -1,0 +1,34 @@
+﻿@model WebApplication5.Models.Department
+
+@{
+    ViewBag.Title = "Department Master";
+}
+
+
+
+@using (Html.BeginForm())
+{ @Html.AntiForgeryToken()
+    <table>
+
+        <tr>
+            <td>
+                Department Master
+            </td>
+
+            <td>
+                @Html.EditorFor(m => m.deptname, new { placeholder = "Department" })
+                @Html.ValidationMessageFor(m=>m.deptname )
+            </td>
+        </tr>
+        <tr>
+            <td>
+      
+            <td>
+            <td><input type="submit" value="Add Dept" class="btn btn-default" /> </td>
+
+
+           
+        </tr>
+       
+    </table>
+}

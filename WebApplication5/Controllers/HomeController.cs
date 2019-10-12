@@ -30,10 +30,11 @@ namespace WebApplication5.Controllers
         public ActionResult AddEmployee(Employees empObj)
         {
 
-            EmpDataRepository empDtrepObj = new EmpDataRepository();
             ModelState.Clear();
+           
             if (ModelState.IsValid)
             {
+                EmpDataRepository empDtrepObj = new EmpDataRepository();
                 if (empDtrepObj.AddEmpoyee(empObj) == true) { ViewBag.Message = "Employee Added Successfully"; return View(); }
                 else
                 {
@@ -92,7 +93,19 @@ namespace WebApplication5.Controllers
             ViewBag.Message = "Deleted Successfully";
             return RedirectToAction("ShowAllEmployee", "Home");
         }
-
-
+    [HttpGet]
+        public ActionResult Department()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Department(Department empObj)
+        {
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+            return View();
+        }
     }
 }

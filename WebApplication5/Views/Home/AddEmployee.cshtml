@@ -1,7 +1,7 @@
 ﻿@model WebApplication5.Models.Employees
 
 @{
-    ViewBag.Title = "AddEmployee";
+    ViewBag.Title = "Add Employee";
 }
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -94,6 +94,9 @@
 
 </td>
     </tr>
+
+
+    @Html.ValidationSummary(true)
 </table>
 }
 

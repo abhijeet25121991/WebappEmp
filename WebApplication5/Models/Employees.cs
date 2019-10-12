@@ -22,6 +22,8 @@ namespace WebApplication5.Models
         
 
         [Display(Name = "Emp. Gender")]
+        [Required(ErrorMessage = "Gener is Required")]
+
         public int gender { get; set; }
 
 

@@ -18,6 +18,12 @@ namespace WebApplication5
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "ShowAllEmployee", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Default4",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "AddDept", id = UrlParameter.Optional }
+            );
         }
     }
 }

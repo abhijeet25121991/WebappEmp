@@ -32,8 +32,7 @@ namespace WebApplication5.Controllers
 
          
            
-            if (ModelState.IsValid)
-            {
+          
                 EmpDataRepository empDtrepObj = new EmpDataRepository();
                 if (empDtrepObj.AddEmpoyee(empObj) == true) { ViewBag.Message = "Employee Added Successfully"; return View(); }
                 else
@@ -41,12 +40,7 @@ namespace WebApplication5.Controllers
                     ViewBag.Message = "Please fill valid data";
                     return View();
                 }
-            }
-
-            else
-            {
-                return View();
-            }
+           
            
         }
 

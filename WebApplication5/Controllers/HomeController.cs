@@ -34,7 +34,9 @@ namespace WebApplication5.Controllers
            
           
                 EmpDataRepository empDtrepObj = new EmpDataRepository();
-                if (empDtrepObj.AddEmpoyee(empObj) == true) { ViewBag.Message = "Employee Added Successfully"; return View(); }
+                if (empDtrepObj.AddEmpoyee(empObj) == true) {
+                ModelState.Clear();
+                ViewBag.Message = "Employee Added Successfully"; return View(); }
                 else
                 {
                     ViewBag.Message = "Please fill valid data";
@@ -63,7 +65,7 @@ namespace WebApplication5.Controllers
             ModelState.Clear();
             if (ModelState.IsValid)
             {
-                if (empDtrepObj.updateEmployee(empObj)) { ViewBag.Message = "Employee Update Successfully"; return View(); }
+                if (empDtrepObj.updateEmployee(empObj)) { ViewBag.Message = "Employee Update Successfully"; return RedirectToAction("ShowAllEmployee", "AddEmployee"); }
                 return View();
             }
             else

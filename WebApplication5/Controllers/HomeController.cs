@@ -65,7 +65,7 @@ namespace WebApplication5.Controllers
             ModelState.Clear();
             if (ModelState.IsValid)
             {
-                if (empDtrepObj.updateEmployee(empObj)) { ViewBag.Message = "Employee Update Successfully"; return RedirectToAction("ShowAllEmployee", "AddEmployee"); }
+                if (empDtrepObj.updateEmployee(empObj)) { ViewBag.Message = "Employee Update Successfully"; return View(); }
                 return View();
             }
             else

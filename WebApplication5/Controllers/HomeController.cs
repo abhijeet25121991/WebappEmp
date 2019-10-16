@@ -30,7 +30,7 @@ namespace WebApplication5.Controllers
         public ActionResult AddEmployee(Employees empObj)
         {
 
-            ModelState.Clear();
+         
            
             if (ModelState.IsValid)
             {
